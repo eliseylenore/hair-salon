@@ -33,7 +33,7 @@ namespace HairSalon.Objects
         {
             return this.GetName().GetHashCode();
         }
-        public int GetID()
+        public int GetId()
         {
             return _id;
         }
