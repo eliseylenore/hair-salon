@@ -1,20 +1,22 @@
-# _{Application Name}_
+# _Hair Salon_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _App for managing a hair salon, 02/24/2017_
 
-#### By _**{List of contributors}**_
+#### By _**Elise St Hilaire**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_This app allows the owner of a hair salon to keep track of stylists and clients. The owner can view which clients belong to which stylists, as well as edit and delete clients._
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+In SQLMD:
+* _> CREATE DATABASE hair_salon;_
+* _> GO_
+* _> USE hair_salon;_
+* _> GO_
+* _> CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255));_
+* _> CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), stylist_id INT);_
 
 _{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
 
