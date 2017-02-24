@@ -158,14 +158,14 @@ namespace HairSalon.Objects
       SqlDataReader rdr = cmd.ExecuteReader();
 
       List<Client> clients = new List<Client> {};
-    //   while(rdr.Read())
-    //   {
-    //     int clientId = rdr.GetInt32(0);
-    //     string clientDescription = rdr.GetString(1);
-    //     int clientStylistId = rdr.GetInt32(2);
-    //     Client newClient = new Client(clientDescription, clientStylistId, clientId);
-    //     clients.Add(newClient);
-    //   }
+      while(rdr.Read())
+      {
+        int clientId = rdr.GetInt32(0);
+        string clientDescription = rdr.GetString(1);
+        int clientStylistId = rdr.GetInt32(2);
+        Client newClient = new Client(clientDescription, clientStylistId, clientId);
+        clients.Add(newClient);
+      }
       if (rdr != null)
       {
         rdr.Close();
