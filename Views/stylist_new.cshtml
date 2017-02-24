@@ -1,3 +1,11 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
+
+<h2>New Stylist</h2>
+<form action="/stylists" method="post">
+    <div class="form-group">
+        <input name="stylist-name" class="form-control" type="text" placeholder="Stylist Name">
+    </div>
+    <button type="submit" class="btn btn-info">Add</button>
+</form>
