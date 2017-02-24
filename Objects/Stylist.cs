@@ -48,12 +48,12 @@ namespace HairSalon
     }
     public static List<Stylist> GetAll()
     {
-      List<Stylist> allCategories = new List<Stylist>{};
+      List<Stylist> allStylists = new List<Stylist>{};
 
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM categories;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM stylists;", conn);
       SqlDataReader rdr = cmd.ExecuteReader();
 
       while(rdr.Read())
@@ -61,7 +61,7 @@ namespace HairSalon
         int stylistId = rdr.GetInt32(0);
         string stylistName = rdr.GetString(1);
         Stylist newStylist = new Stylist(stylistName, stylistId);
-        allCategories.Add(newStylist);
+        allStylists.Add(newStylist);
       }
 
       if (rdr != null)
@@ -73,7 +73,7 @@ namespace HairSalon
         conn.Close();
       }
 
-      return allCategories;
+      return allStylists;
     }
 
     public void Save()
@@ -81,7 +81,7 @@ namespace HairSalon
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("INSERT INTO categories (name) OUTPUT INSERTED.id VALUES (@StylistName);", conn);
+      SqlCommand cmd = new SqlCommand("INSERT INTO stylists (name) OUTPUT INSERTED.id VALUES (@StylistName);", conn);
 
       SqlParameter nameParameter = new SqlParameter();
       nameParameter.ParameterName = "@StylistName";
@@ -107,7 +107,7 @@ namespace HairSalon
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
-      SqlCommand cmd = new SqlCommand("DELETE FROM categories;", conn);
+      SqlCommand cmd = new SqlCommand("DELETE FROM stylists;", conn);
       cmd.ExecuteNonQuery();
       conn.Close();
     }
@@ -117,7 +117,7 @@ namespace HairSalon
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM categories WHERE id = @StylistId;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM stylists WHERE id = @StylistId;", conn);
       SqlParameter stylistIdParameter = new SqlParameter();
       stylistIdParameter.ParameterName = "@StylistId";
       stylistIdParameter.Value = id.ToString();

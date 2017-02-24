@@ -12,7 +12,7 @@ namespace HairSalon
   {
     public StylistTest()
     {
-      DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=todo_test;Integrated Security=SSPI;";
+      DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
     }
 
     [Fact]
@@ -29,8 +29,8 @@ namespace HairSalon
     public void Test_Equal_ReturnsTrueForSameName()
     {
       //Arrange, Act
-      Stylist firstStylist = new Stylist("Household chores");
-      Stylist secondStylist = new Stylist("Household chores");
+      Stylist firstStylist = new Stylist("Betsy Ross");
+      Stylist secondStylist = new Stylist("Betsy Ross");
 
       //Assert
       Assert.Equal(firstStylist, secondStylist);
@@ -40,7 +40,7 @@ namespace HairSalon
     public void Test_Save_SavesStylistToDatabase()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Household chores");
+      Stylist testStylist = new Stylist("Betsy Ross");
       testStylist.Save();
 
       //Act
@@ -55,7 +55,7 @@ namespace HairSalon
     public void Test_Save_AssignsIdToStylistObject()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Household chores");
+      Stylist testStylist = new Stylist("Betsy Ross");
       testStylist.Save();
 
       //Act
@@ -72,7 +72,7 @@ namespace HairSalon
     public void Test_Find_FindsStylistInDatabase()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Household chores");
+      Stylist testStylist = new Stylist("Betsy Ross");
       testStylist.Save();
 
       //Act
