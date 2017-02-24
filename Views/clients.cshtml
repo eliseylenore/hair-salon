@@ -13,8 +13,8 @@
   {
     @foreach (var client in Model)
     {
-            <h5><a href="/clients/@client.GetId()">@client.GetName()</a></h5>
-            <p><a href="/clients/delete/@client.GetId()">Delete</a></p>
+            <h5><a href="/client/@client.GetId()">@client.GetName()</a></h5>
+            <p><a href="/client/delete/@client.GetId()">Delete</a></p>
 
     }
   }

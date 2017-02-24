@@ -13,7 +13,7 @@
 {
     @foreach (var stylist in Model)
     {
-        <h5><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></h5>
+        <h5><a href="/stylist/@stylist.GetId()">@stylist.GetName()</a></h5>
         <p><a href="/stylist/delete/@stylist.GetId()">Delete</a></p>
     }
 }

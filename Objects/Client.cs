@@ -210,7 +210,7 @@ namespace HairSalon.Objects
           SqlConnection conn = DB.Connection();
           conn.Open();
 
-          SqlCommand cmd = new SqlCommand("DELETE FROM clients WHERE id = @ClientId; DELETE FROM stylists WHERE id = @ClientId;", conn);
+          SqlCommand cmd = new SqlCommand("DELETE FROM clients WHERE id = @ClientId;", conn);
 
           SqlParameter clientIdParameter = new SqlParameter();
           clientIdParameter.ParameterName = "@ClientId";
