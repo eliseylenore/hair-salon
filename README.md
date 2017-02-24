@@ -17,7 +17,36 @@ In SQLMD:
 * _> USE hair_salon;_
 * _> GO_
 * _> CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255));_
+* _> GO_
 * _> CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), stylist_id INT);_
+* _> GO_
+
+
+## Specs
+
+**The program returns a list of saved clients.**  
+* Input: "Betsy Ross", "John Newton", "Hilga the Rockclimber";
+* Output: "Betsy Ross", "John Newton", "Hilga the Rockclimber";
+
+**The program returns a saved client's details.**  
+* Input: "Betsy Ross" *click*  
+* Output: Name: "Betsy Ross", Stylist: "Hilga the Rockclimber", Balance: 0
+
+**The program returns a list of saved stylists.**  
+* Input: "Betsy Ross", "John Newton", "Hilga the Rockclimber";
+* Output: "Betsy Ross", "John Newton", "Hilga the Rockclimber";
+
+**The program returns a saved stylist's details.**  
+* Input: "Betsy Ross" *click*  
+* Output: Name: "Betsy Ross", Hire Date: 01/21/1992
+
+**The program allows to update a client's details.**  
+* Input: Change "Betsy Ross" to "Betsy DeVoss"
+* Output: Name: Recorded updated! Client's new name is "Betsy DeVoss"
+
+**The program allows to update a client's details.**  
+* Input: Change "Betsy Ross" to "Betsy DeVoss"
+* Output: Name: Recorded updated! Client's new name is "Betsy DeVoss"
 
 
 ## Known Bugs
