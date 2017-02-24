@@ -1,9 +1,9 @@
 using Xunit;
-using Namespace.Objects;
+using HairSalon.Objects;
 using System;
 using System.Collections.Generic;
 
-namespace Namespace
+namespace HairSalon
 {
     public class ClassTest
     {

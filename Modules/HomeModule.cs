@@ -1,9 +1,9 @@
 using Nancy;
 using System.Collections.Generic;
-using Namespace.Objects;
+using HairSalon.Objects;
 
 
-namespace Namespace
+namespace HairSalon
 {
     public class HomeModule : NancyModule
     {
