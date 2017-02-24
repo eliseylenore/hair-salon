@@ -1,0 +1,10 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+<h2>Stylists</h2>
+
+<h4>Are you sure you want to delete @Model.GetName() and all of their clients?</h4>
+<form action="/stylist/delete/@Model.GetId()" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit" class="btn btn-primary">Delete</button>
+</form>
