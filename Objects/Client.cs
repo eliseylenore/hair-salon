@@ -15,6 +15,25 @@ namespace HairSalon.Objects
             _name = Name;
         }
 
+        public override bool Equals(System.Object otherClient)
+        {
+            // if (!(otherClient is Client))
+            // {
+            //     return false;
+            // }
+            // else
+            // {
+            //     Client newClient = (Client) otherClient;
+            //     bool descriptionEquality = (this.GetDescription() == newClient.GetDescription());
+            //     return (descriptionEquality);
+            return false;
+            // }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.GetName().GetHashCode();
+        }
         public int GetID()
         {
             return _id;
@@ -29,6 +48,7 @@ namespace HairSalon.Objects
         {
             _name = newName;
         }
+
         public static List<Client> GetAll()
         {
             List<Client> allClients = new List<Client>{};
