@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using HairSalon.Objects;
 
+
 namespace HairSalon
 {
     public class ClientTest : IDisposable
@@ -78,6 +79,7 @@ namespace HairSalon
           Client foundClient = Client.Find(testClient.GetId());
 
           //Assert
+          Console.WriteLine("test stylist: " + testClient.GetId() + "found stylist: " + foundClient.GetId());
           Assert.Equal(testClient, foundClient);
         }
 

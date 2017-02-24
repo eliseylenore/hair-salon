@@ -98,7 +98,7 @@ namespace HairSalon.Objects
 
         public static List<Client> GetAll()
         {
-            List<Client> allClients = new List<Client>{};
+            List<Client> AllClients = new List<Client>{};
 
             SqlConnection conn = DB.Connection();
             conn.Open();
@@ -110,9 +110,9 @@ namespace HairSalon.Objects
             {
                 int clientId = rdr.GetInt32(0);
                 string clientName = rdr.GetString(1);
-                int clientStylistName = rdr.GetInt32(2);
-                Client newClient = new Client(clientName, clientId, clientStylistName);
-                allClients.Add(newClient);
+                int clientStylistId = rdr.GetInt32(2);
+                Client newClient = new Client(clientName, clientStylistId, clientId);
+                AllClients.Add(newClient);
             }
 
             if (rdr != null)
@@ -124,7 +124,7 @@ namespace HairSalon.Objects
                 conn.Close();
             }
 
-            return allClients;
+            return AllClients;
         }
 
         public static Client Find(int id)
@@ -141,15 +141,15 @@ namespace HairSalon.Objects
 
           int foundClientId = 0;
           string foundClientDescription = null;
-          int foundClientStylist = 0;
+          int foundClientStylistId = 0;
 
           while(rdr.Read())
           {
             foundClientId = rdr.GetInt32(0);
             foundClientDescription = rdr.GetString(1);
-            foundClientStylist = rdr.GetInt32(2);
+            foundClientStylistId = rdr.GetInt32(2);
           }
-          Client foundClient = new Client(foundClientDescription, foundClientId, foundClientStylist);
+          Client foundClient = new Client(foundClientDescription, foundClientStylistId, foundClientId);
 
           if (rdr != null)
           {
