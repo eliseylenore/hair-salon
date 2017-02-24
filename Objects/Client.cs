@@ -56,7 +56,7 @@ namespace HairSalon.Objects
           SqlCommand cmd = new SqlCommand("INSERT INTO clients (name) OUTPUT INSERTED.id VALUES (@ClientName);", conn);
 
           SqlParameter nameParameter = new SqlParameter();
-          nameParameter.ParameterName = "@Clientname";
+          nameParameter.ParameterName = "@ClientName";
           nameParameter.Value = this.GetName();
           cmd.Parameters.Add(nameParameter);
           SqlDataReader rdr = cmd.ExecuteReader();
@@ -79,28 +79,28 @@ namespace HairSalon.Objects
         {
             List<Client> allClients = new List<Client>{};
 
-            // SqlConnection conn = DB.Connection();
-            // conn.Open();
-            //
-            // SqlCommand cmd = new SqlCommand("SELECT * FROM clients;", conn);
-            // SqlDataReader rdr = cmd.ExecuteReader();
-            //
-            // while(rdr.Read())
-            // {
-            //     int clientId = rdr.GetInt32(0);
-            //     string clientName = rdr.GetString(1);
-            //     Client newClient = new Client(clientName, clientId);
-            //     allClients.Add(newClient);
-            // }
-            //
-            // if (rdr != null)
-            // {
-            //     rdr.Close();
-            // }
-            // if (conn != null)
-            // {
-            //     conn.Close();
-            // }
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM clients;", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                int clientId = rdr.GetInt32(0);
+                string clientName = rdr.GetString(1);
+                Client newClient = new Client(clientName, clientId);
+                allClients.Add(newClient);
+            }
+
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
 
             return allClients;
         }

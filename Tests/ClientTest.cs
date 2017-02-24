@@ -25,7 +25,7 @@ namespace HairSalon
         }
 
         [Fact]
-        public void Test_Equal_ReturnsTrueIfDescriptionsAreTheSame()
+        public void Test_Equal_ReturnsTrueIfNamesAreTheSame()
         {
             //Arrange, Act
             Client firstClient = new Client("Mow the lawn");
@@ -34,6 +34,7 @@ namespace HairSalon
             //Assert
             Assert.Equal(firstClient, secondClient);
         }
+
         [Fact]
         public void Test_Save_SavesToDatabase()
         {
