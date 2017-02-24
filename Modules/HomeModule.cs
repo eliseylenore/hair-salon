@@ -30,11 +30,6 @@ namespace HairSalon
                 return View["clients.cshtml", AllClients];
             };
 
-            Get["/task/{id}"] = parameters => {
-                Client SelectedClient = Client.Find(parameters.id);
-                return View["client.cshtml", SelectedClient];
-            };
-
             Patch["client/edit/{id}"] = parameters => {
               Client SelectedClient = Client.Find(parameters.id);
               SelectedClient.UpdateName(Request.Form["client-name"]);
@@ -90,6 +85,15 @@ namespace HairSalon
                 List<Client> AllClients = Client.GetAll();
                 return View["clients.cshtml", AllClients];
             };
+
+            Get["/stylist/{id}"] = parameters => {
+              Dictionary<string, object> model = new Dictionary<string, object>();
+              var SelectedStylist = Stylist.Find(parameters.id);
+              var StylistClients = SelectedStylist.GetClients();
+              model.Add("stylist", SelectedStylist);
+              model.Add("clients", StylistClients);
+              return View["stylist.cshtml", model];
+          };
 
         }
     }

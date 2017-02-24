@@ -1,3 +1,23 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
+
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<h2>@Model["stylist"].GetName()</h2>
+<h3>Stylist: @Model["stylist"].GetName()</h3>
+<h5><a href="/client/edit/@Model["stylist"].GetId()">Edit</a></h5>
+
+@if (@Model["clients"].Count == 0)
+{
+  <p>@Model["stylist"].GetName() doesn't have any clients yet. Would you like to <a href="/client/new">add one</a>?</p>
+}
+else
+{
+    @foreach (var client in @Model["clients"])
+    {
+      <h4><a href="/client/@client.GetId()">@client.GetName()</a></h4>
+    }
+}
