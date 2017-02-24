@@ -30,6 +30,11 @@ namespace HairSalon
                 return View["clients.cshtml", AllClients];
             };
 
+            Get["client/edit/{id}"] = parameters => {
+                Client SelectedClient = Client.Find(parameters.id);
+                return View["client_edit.cshtml", SelectedClient];
+            };
+
             Patch["client/edit/{id}"] = parameters => {
               Client SelectedClient = Client.Find(parameters.id);
               SelectedClient.UpdateName(Request.Form["client-name"]);
@@ -93,6 +98,18 @@ namespace HairSalon
               model.Add("stylist", SelectedStylist);
               model.Add("clients", StylistClients);
               return View["stylist.cshtml", model];
+          };
+
+          Get["stylist/edit/{id}"] = parameters => {
+              Stylist SelectedStylist = Stylist.Find(parameters.id);
+              return View["stylist_edit.cshtml", SelectedStylist];
+          };
+
+          Patch["stylist/edit/{id}"] = parameters => {
+            Stylist SelectedStylist = Stylist.Find(parameters.id);
+            SelectedStylist.Update(Request.Form["stylist-name"]);
+            List<Stylist> AllStylists = Stylist.GetAll();
+            return View["stylists.cshtml", AllStylists];
           };
 
         }

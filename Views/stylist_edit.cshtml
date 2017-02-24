@@ -1,0 +1,13 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<h2>Edit @Model.GetName()</h2>
+<form action:"/stylist/edit/@Model.GetId()" method="post">
+    <div class="form-group">
+        <input type="hidden" name="_method" value="PATCH">
+        <input name="stylist-id" type="hidden" value="@Model.GetId()">
+        <input class="form-control" name="stylist-name" type="text" placeholder="Stylist name">
+        <button type="submit" class="btn btn-info">Submit</button>
+    </div>
+</form>

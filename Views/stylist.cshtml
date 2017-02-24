@@ -7,8 +7,9 @@
 }
 
 <h2>@Model["stylist"].GetName()</h2>
-<h3>Stylist: @Model["stylist"].GetName()</h3>
-<h5><a href="/client/edit/@Model["stylist"].GetId()">Edit</a></h5>
+<h3>@Model["stylist"].GetName()'s Clients:</h3><h5><a href="/stylist/edit/@Model["stylist"].GetId()"><button class="btn btn-info">Edit Name</button></a></h5>
+
+
 
 @if (@Model["clients"].Count == 0)
 {
