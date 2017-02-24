@@ -108,35 +108,35 @@ namespace HairSalon.Objects
 
         public static Client Find(int id)
         {
-        //   SqlConnection conn = DB.Connection();
-        //   conn.Open();
-          //
-        //   SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId;", conn);
-        //   SqlParameter clientIdParameter = new SqlParameter();
-        //   clientIdParameter.ParameterName = "@ClientId";
-        //   clientIdParameter.Value = id.ToString();
-        //   cmd.Parameters.Add(clientIdParameter);
-        //   SqlDataReader rdr = cmd.ExecuteReader();
-          //
-        //   int foundClientId = 0;
-        //   string foundClientDescription = null;
-        //   while(rdr.Read())
-        //   {
-        //     foundClientId = rdr.GetInt32(0);
-        //     foundClientDescription = rdr.GetString(1);
-        //   }
-        //   Client foundClient = new Client(foundClientDescription, foundClientId);
-          //
-        //   if (rdr != null)
-        //   {
-        //     rdr.Close();
-        //   }
-        //   if (conn != null)
-        //   {
-        //     conn.Close();
-        //   }
-        
-          return new Client("blah");
+          SqlConnection conn = DB.Connection();
+          conn.Open();
+
+          SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId;", conn);
+          SqlParameter clientIdParameter = new SqlParameter();
+          clientIdParameter.ParameterName = "@ClientId";
+          clientIdParameter.Value = id.ToString();
+          cmd.Parameters.Add(clientIdParameter);
+          SqlDataReader rdr = cmd.ExecuteReader();
+
+          int foundClientId = 0;
+          string foundClientDescription = null;
+          while(rdr.Read())
+          {
+            foundClientId = rdr.GetInt32(0);
+            foundClientDescription = rdr.GetString(1);
+          }
+          Client foundClient = new Client(foundClientDescription, foundClientId);
+
+          if (rdr != null)
+          {
+            rdr.Close();
+          }
+          if (conn != null)
+          {
+            conn.Close();
+          }
+
+          return foundClient;
         }
 
         public static void DeleteAll()
