@@ -17,17 +17,16 @@ namespace HairSalon.Objects
 
         public override bool Equals(System.Object otherClient)
         {
-            // if (!(otherClient is Client))
-            // {
-            //     return false;
-            // }
-            // else
-            // {
-            //     Client newClient = (Client) otherClient;
-            //     bool descriptionEquality = (this.GetDescription() == newClient.GetDescription());
-            //     return (descriptionEquality);
-            return false;
-            // }
+            if (!(otherClient is Client))
+            {
+                return false;
+            }
+            else
+            {
+                Client newClient = (Client) otherClient;
+                bool nameEquality = (this.GetName() == newClient.GetName());
+                return (nameEquality);
+            }
         }
 
         public override int GetHashCode()
