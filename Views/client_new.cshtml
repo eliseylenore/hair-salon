@@ -7,11 +7,11 @@
 {
     <form action="/clients" method="post" class="form-inline">
         <div class="form-group">
-            <input name="client-name" class="form-control" type="text" placeholder="Client Name">
+            <input name="client-name" class="form-control" type="text" placeholder="Client Name" required>
         </div>
         <div class="form-group">
         <label>Stylist</label>
-        <select name="stylist-id" class="form-control">
+        <select name="stylist-id" class="form-control" required>
 
             <option></option>
            @foreach (var stylist in Model)

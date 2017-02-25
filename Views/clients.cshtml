@@ -1,11 +1,13 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
-<h2>Clients</h2>
+<div>
+    <a href="/"><img class="home" src="/Content/img/home.png"><h2 class="inline-title">Clients</h2>
+</div>
 <form class="form-inline">
     <div class="form-group">
         <div class="input-group">
-            <input type="text" name="stylist-search" class="form-control search" placeholder="Search stylists">
+            <input type="text" name="stylist-search" class="form-control search" placeholder="Search clients">
             <div class="input-group-addon">Search!</div>
         </div>
     </div>
@@ -18,8 +20,10 @@
   {
     @foreach (var client in Model)
     {
-            <h5><a href="/client/@client.GetId()">@client.GetName()</a></h5>
-            <p><a href="/client/delete/@client.GetId()">Delete</a></p>
+            <div>
+                <h4><a href="/client/@client.GetId()">@client.GetName()</a></h4>
+                <a href="/client/delete/@client.GetId()"><img src="/Content/img/delete.jpg" class="delete" alt="delete"></a>
+            </div>
 
     }
   }
