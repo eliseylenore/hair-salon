@@ -4,10 +4,15 @@
 <h2>Clients</h2>
 <form class="form-inline">
     <div class="form-group">
-        <input type="text" name="stylist-search" class="form-control" placeholder="Search stylists">
+        <div class="input-group">
+            <input type="text" name="stylist-search" class="form-control search" placeholder="Search stylists">
+            <div class="input-group-addon">Search!</div>
+        </div>
     </div>
+
+    <a href="/client/new"><button type="button" class="new-client btn btn-info">New Client</button></a>
 </form>
-<a href="/client/new"><button type="button" class="new-client btn btn-info">New Client</button></a>
+
 
 @if (Model.Count != 0)
   {

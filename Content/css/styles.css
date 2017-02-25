@@ -1,0 +1,17 @@
+/*************General Styles**************/
+h2{
+    font-size: 72px;
+    text-align: center;
+}
+
+form.search, .new-client {
+    display: inline;
+}
+/*************Home Page Styles**************/
+h2 a {
+    color: black;
+}
+
+h2 a:hover {
+    text-decoration: none;
+}
